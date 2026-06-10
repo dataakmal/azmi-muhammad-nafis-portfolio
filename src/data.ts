@@ -1,4 +1,5 @@
 import { Experience, Project, SkillCategory, Achievement, Certificate } from './types';
+import avatarImg from './assets/images/azmi-nafis.png';
 
 export const PERSONAL_INFO = {
   name: 'Azmi Muhammad Nafis',
@@ -11,7 +12,7 @@ export const PERSONAL_INFO = {
   phone: '+6289515204969',
   linkedin: 'https://www.linkedin.com/in/azmi-muhammad-nafis',
   location: 'Bogor, West Java, Indonesia',
-  avatarUrl: '/src/assets/images/azmi_avatar_1781060593505.png', // The generated premium avatar
+  avatarUrl: avatarImg, // The imported premium avatar
 };
 
 export const COUNTERS = [
