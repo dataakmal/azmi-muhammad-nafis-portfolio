@@ -73,7 +73,7 @@ export default function App() {
   }, []);
 
   const handleDownloadCVDirect = () => {
-    navigateToPage('honors');
+    window.open('https://drive.google.com/file/d/1acIiLThQdobEuwk5DdGMd5NYWvh0g-Cs/view', '_blank', 'noopener,noreferrer');
   };
 
   if (isLoading) {

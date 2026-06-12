@@ -4,102 +4,13 @@ import { ACHIEVEMENTS, CERTIFICATE_INFO, PERSONAL_INFO } from '../data';
 
 export default function CertificateSection() {
   const [isPreviewOpen, setIsPreviewOpen] = useState(false);
-  const [downloadingCV, setDownloadingCV] = useState(false);
-  const [downloadingCert, setDownloadingCert] = useState(false);
 
   const triggerCVDownload = () => {
-    setDownloadingCV(true);
-    // Simulating file compilation and secure download flow
-    setTimeout(() => {
-      // Create and download a structured mock CV document as brief summary txt
-      const cvText = `
-========================================
-AZMI MUHAMMAD NAFIS
-Data Analyst | Business Intelligence | ML Enthusiast
-Email: ${PERSONAL_INFO.email}
-Phone: ${PERSONAL_INFO.phone}
-LinkedIn: ${PERSONAL_INFO.linkedin}
-Location: ${PERSONAL_INFO.location}
-========================================
-
-PROFESSIONAL SUMMARY:
-${PERSONAL_INFO.detailedAbout}
-
-EDUCATION:
-Universitas Padjadjaran (Bachelor of Statistics)
-GPA: 3.52 / 4.00
-Period: August 2022 - February 2026
-
-WORK EXPERIENCE:
-1. PT Paragon Technology and Innovation (Commercial Intern)
-   - Period: Jan 2026 - Jun 2026
-   - Automated affiliate outreach via ML pipeline, compressing outreach by 99%
-   - Developed Real-Time KPI Livestream performance dashboards.
-2. PT Bank Rakyat Indonesia (Micro Ecosystem Intern)
-   - Period: Feb 2025 - Jul 2025
-   - Engineered real-time KPI dashboards for QRIS/BRILink.
-   - Audited merchant datasets to prune 200+ inactive SME accounts.
-3. Badan Pusat Statistik Kuningan (Staff Intern)
-   - Period: Jan 2025
-   - Validated SUSENAS and SAKERNAS nationwide census arrays.
-
-SKILLS:
-- Python, Pandas, NumPy, Scikit-Learn, SQL / MySQL, R
-- Power BI, Excel, VBA, Pivot Table Dashboards
-- Machine Learning, Natural Language Processing (IndoBERT), Statistical Modeling
-
-ACHIEVEMENTS:
-- Winner of Putra HIMASTA (Statistics Ambassador 2023)
-- Winner of Putra Favourite FMIPA UNPAD 2023
-- Certificate: 3 Days To Be Data Engineer (2025)
-
-----------------------------------------
-Generated from Portfoio Workspace Server. Date: 2026.
-========================================
-      `;
-      const blob = new Blob([cvText.trim()], { type: 'text/plain' });
-      const url = URL.createObjectURL(blob);
-      const link = document.createElement('a');
-      link.href = url;
-      link.download = `CV_Azmi_Muhammad_Nafis_Data_Analyst.txt`;
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-      setDownloadingCV(false);
-    }, 1200);
+    window.open('https://drive.google.com/file/d/1acIiLThQdobEuwk5DdGMd5NYWvh0g-Cs/view', '_blank', 'noopener,noreferrer');
   };
 
   const triggerCertificateDownload = () => {
-    setDownloadingCert(true);
-    setTimeout(() => {
-      const certText = `
-============================================================
-CREDENTIAL VERIFICATION PORTAL
-============================================================
-Certificate ID: CRED-DATAENG-2025-992A
-Program Name: 3 Days to Be Data Engineer Masterclass
-Awarded To: ${CERTIFICATE_INFO.owner}
-
-Topics Covered:
-- Big Data Pipelines Architecture
-- ETL/ELT System Engineering
-- Cloud Warehousing and Spark Analytics
-- Real-time DB Ingestion and Query Optimizations
-
-Status: VERIFIED & ACTIVE
-Issuer: Data Engineering Indonesia Academy
-============================================================
-      `;
-      const blob = new Blob([certText.trim()], { type: 'text/plain' });
-      const url = URL.createObjectURL(blob);
-      const link = document.createElement('a');
-      link.href = url;
-      link.download = `Certificate_3_Days_Data_Engineer_Azmi_Nafis.txt`;
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-      setDownloadingCert(false);
-    }, 1000);
+    window.open('https://drive.google.com/file/d/1-RUCwfKUGnL6n-zYFSZ5wrPv_OXlJvxu/view', '_blank', 'noopener,noreferrer');
   };
 
   return (
@@ -229,11 +140,10 @@ Issuer: Data Engineering Indonesia Academy
 
                 <button
                   onClick={triggerCertificateDownload}
-                  disabled={downloadingCert}
-                  className="flex items-center justify-center gap-1.5 text-xs py-2 px-3 rounded-lg font-medium bg-purple-600 hover:bg-purple-500 text-white transition-all cursor-pointer shadow-md shadow-purple-500/20 disabled:opacity-50"
+                  className="flex items-center justify-center gap-1.5 text-xs py-2 px-3 rounded-lg font-medium bg-purple-600 hover:bg-purple-500 text-white transition-all cursor-pointer shadow-md shadow-purple-500/20"
                 >
-                  <Download className="w-4 h-4" />
-                  {downloadingCert ? 'Compiling...' : 'Get Cert'}
+                  <ExternalLink className="w-4 h-4" />
+                  Get Cert
                 </button>
               </div>
 
@@ -272,11 +182,10 @@ Issuer: Data Engineering Indonesia Academy
 
               <button
                 onClick={triggerCVDownload}
-                disabled={downloadingCV}
-                className="w-full flex items-center justify-center gap-2 text-xs font-bold py-3 rounded-xl cursor-pointer bg-gradient-to-r from-purple-500 to-indigo-600 text-white hover:opacity-90 transform hover:scale-[1.01] active:scale-[0.99] transition-all shadow-lg shadow-purple-500/10 disabled:opacity-50"
+                className="w-full flex items-center justify-center gap-2 text-xs font-bold py-3 rounded-xl cursor-pointer bg-gradient-to-r from-purple-500 to-indigo-600 text-white hover:opacity-90 transform hover:scale-[1.01] active:scale-[0.99] transition-all shadow-lg shadow-purple-500/10"
               >
                 <Download className="w-4 h-4" />
-                {downloadingCV ? 'Formative compilation of CV...' : 'Download Full Professional CV [TXT]'}
+                View & Download Professional CV
               </button>
             </div>
 
